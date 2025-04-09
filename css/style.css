@@ -18,6 +18,8 @@ body {
 
 .container {
   display: grid;
+  width: 80vw;
+  height: 80vh;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 2em;
@@ -25,9 +27,19 @@ body {
 .container .article {
   display: flex;
   flex-direction: column;
-  padding: 2.5em;
+  min-width: 200px;
+  padding: 2em;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(59, 42, 21, 0.3);
+  z-index: -1;
+}
+.container .article__content {
+  position: relative;
+}
+.container .article__content--quote {
+  position: absolute;
+  right: 5%;
+  z-index: -1;
 }
 .container .article__content--image {
   width: 4em;
@@ -52,21 +64,18 @@ body {
   margin-top: 0.2em;
 }
 .container .article__content .article__text--main {
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: 600;
   margin: 0.6em 0;
 }
 .container .article__content .article__text--paragraph {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 400;
   margin: 0;
 }
 .container .article--1 {
   background-color: hsl(263, 55%, 52%);
   grid-column: 1/3;
-}
-.container .article--1 .article__content--image {
-  border: 2px solid hsl(264, 82%, 80%);
 }
 .container .article--2 {
   background-color: hsl(217, 19%, 35%);
@@ -77,12 +86,65 @@ body {
   grid-row: 1/3;
   grid-column: 4/5;
 }
+.container .article--3 .article__content {
+  color: #787f87;
+}
+.container .article--3 .article__content .article__header {
+  color: #6b727d;
+}
+.container .article--3 .article__content .article__text--main {
+  color: #6b727d;
+}
 .container .article--4 {
   background-color: hsl(0, 0%, 100%);
   grid-row: 2/3;
+}
+.container .article--4 .article__content {
+  color: #787f87;
+}
+.container .article--4 .article__content .article__header {
+  color: #6b727d;
+}
+.container .article--4 .article__content .article__text--main {
+  color: #6b727d;
 }
 .container .article--5 {
   background-color: #191f2d;
   grid-column: 2/4;
   grid-row: 2/2;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90vw;
+    height: auto;
+    min-height: 80vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, auto);
+    gap: 2em;
+    padding: 2em;
+  }
+  .container .article {
+    min-height: 200px;
+  }
+  .container .article--1 {
+    grid-column: 1/1;
+    grid-row: 1/2;
+  }
+  .container .article--2 {
+    grid-column: 1/1;
+    grid-row: 2/3;
+  }
+  .container .article--4 {
+    grid-column: 1/1;
+    grid-row: 3/4;
+  }
+  .container .article--3 {
+    grid-column: 1/1;
+    grid-row: 5/6;
+  }
+  .container .article--5 {
+    grid-column: 1/1;
+    grid-row: 4/5;
+  }
 }/*# sourceMappingURL=style.css.map */
